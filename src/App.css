@@ -1,38 +1,299 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto+Condensed:wght@300;400;700&display=swap');
+
+html{
+    scroll-behavior: smooth;
+}
+*{
+    padding:0;
+    margin:0;
+    font-family:'Poppins', sans-serif;
+}
+body{
+    background-color: white;
+}
+/* #center{
+    color:white;
+    background-image: url('img/background-darken.png');
+    background-size: cover;
+    margin: 0;
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color:#0A0908;
+} */
+.container{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    row-gap: 20px;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+.btn-nextpage:hover{
+    transform:scale(1.02);
+}
+#about .container{
+    width:90%;
+}
+.btn-icon, .btn-ignore{
+    width:32px;
+}
+a.btn-nextpage{
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    width:100%;
+    background-color:transparent;
+    padding:10px;
+    border: white 2px solid;
+    text-decoration: none;
+    color:white;
+}
+#title{
+    font-size: 20px;
+}
+#title-bar{
+    background-color: black;
+    color:white;
+    display:flex;
+    align-items: center;
+    justify-content:space-between;
+    padding:10px;
+}
+.title-container{
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    padding:10px;
+}
+#navbar{
+    z-index:2;
+    background-color: white;
+    margin:0;
+    display: flex;
+    text-align: center;
+    padding: 0 10px;
+    font-size: 16px;
+    align-items: center;
+    column-gap: 10px;
+    justify-content: space-between;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+#logo{
+    height:24pt;
+}
+#navbar-icon {
+    display: none;
+}  
+nav ul{
+    width:100%;
+    list-style-type: none;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+}
+ul li{
+    width:100%;
+    margin:0;
+}
+.btn-navbar{
+    color: black;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    padding: 20px;
+}
+  
+.btn-navbar:hover{
+    background-color: black;
+    color: white;
+}
+.link{
+    text-decoration: none;
+    color:black;
+}
+footer{
+    display:flex;
+    background-color: black;
+    color:white;
+    height:75px;
+    justify-content: center;
+    align-items: center;
+}
+footer.fixed-btm{
+    position:fixed;
+    bottom:0;
+    width:100%;
+}
+div.menu{
+    margin:10px;
+    padding:10px;
+}
+.menu div h1{
+    margin-left:15px;
+    font-size: 28px;
+    font-weight: 700;
+}
+.menu .menu-grid{
+    display: grid;
+    grid-template-columns:33.3% 33.3% 33.3%;
+}
+.menu-grid .menu-item{
+    display:block;
+    margin:15px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.menu-item:hover{
+    transform:scale(1.02);
+    position:relative;
+    z-index: 0;
+}
+.menu-name{
+    font-family: 'Poppins',sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+}
+.menu-pic{
+    width:100%;
+    aspect-ratio:4/3;
+    object-fit: cover;
+}
+.menu-info{
+    margin:20px;
+    line-height:1.8;
+}
+.menu-info div{
+    display:flex;
+    column-gap: 10px;
+    justify-content: space-between;
+
+}
+.menu-desc{
+    color:#555555;
+}
+.menu-price{
+    margin-top:5px;
+    color:#427A5B;
+    font-weight:500;
+    bottom:0%;
+}
+@media only screen and (min-width:1200px) {
+    .menu .menu-grid{
+        display: grid;
+        grid-template-columns:25% 25% 25% 25%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    #header{
+        position:fixed;
+        top:0;
+        width:100%;
+        z-index:2;
+    }
+	#title{
+        font-size: 20px;
+    }
+    
+    .header-text{
+        font-size: 10px;
+    }
+    a.btn-nextpage{
+        font-size: 20px;
+    }
+    .btn-icon{
+        width: 20px;
+    }
+    .btn-ignore{
+        display:none!important;
+    }
+    footer{
+        font-size: 20px;
+    }
+    nav ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li a{
+        font-size: 14px;
+    }
+    #title-bar{
+        justify-content: space-between;
+    }
+    #navbar-icon {
+        height:40px;
+        display: block;
+        margin: 10px;
+        padding:5px;
+        border:white 1.5px solid;
+        border-radius:10px;
+    }
+      
+    .navbar-group-close {
+        display: none!important;
+    }
+    .menu .menu-grid{
+        display: flex;
+        flex-direction: column;
+    }
+    .menu-grid .menu-item{
+        display:block;
+        margin:15px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .menu-item:hover{
+        transform:none;
+        position:relative;
+        z-index:0;
+    }
+    .menu-pic{
+        width:100%;
+        aspect-ratio:4/3;
+        object-fit: cover;
+    }
+    .menu-info{
+        margin:20px;
+        line-height:1.8;
+    }
+    .menu-price{
+        margin-top:2px;
+    }
+    .menu-info div{
+        display:flex;
+        column-gap: 10px;
+        justify-content: space-between;
+    
+    }
+    h1{
+        font-size:24px!important;
+    }
+    h2{
+        font-size:20px!important;
+    }
+    h3{
+        font-size:18px!important;
+    }
+    p, footer{
+        font-size:14px!important;
+    }
+}
+@media only screen and (min-width: 769px) and (max-width: 1023px) {
+    .menu .menu-grid{
+        display: grid;
+        grid-template-columns:50% 50%;
+    }
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

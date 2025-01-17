@@ -1,9 +1,14 @@
 import Menu from "../Components/Menu"
+import NotFoundPage from "../Components/NotFound"
 
-const Home = () => {
+export const Home = () => {
   return(
     <Menu/>
   )
 }
 
-export default Home
+export const NotFound = () => {
+  return(
+    <NotFoundPage/>
+  )
+}
