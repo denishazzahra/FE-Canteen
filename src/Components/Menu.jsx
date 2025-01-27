@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
-import getAllMenu from "../API/API"
+import {getAllMenu} from "../API/API"
+import {Helmet} from "react-helmet"
 
 const Menu = () => {
   const [menu, setMenu] = useState([]);
@@ -17,6 +18,9 @@ const Menu = () => {
   }, [])
   return(
     <>
+      <Helmet>
+        <script src='/script.js'></script>
+      </Helmet>
       <header id="header">
         <div id="title-bar">
             <img className="btn-icon" src="/circle.png" alt="Ignore"/>

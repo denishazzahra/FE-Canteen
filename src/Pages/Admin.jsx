@@ -1,7 +1,14 @@
-const Login = () => {
+import AdminPageComponent from '../Components/Admin'
+import LoginComponent from '../Components/Login'
+
+export const Login = () => {
   return(
-    <h3>login admin</h3>
+    <LoginComponent/>
   )
 }
 
-export default Login
+export const AdminPage = () => {
+  return(
+    <AdminPageComponent/>
+  )
+}
