@@ -56,7 +56,7 @@ const Navbar = ({navigation,logout}) => {
         </div>
       </div>
 
-      <DisclosurePanel className="sm:hidden">
+      <DisclosurePanel className="sm:hidden mt-16">
         <div className="space-y-1 px-2 pt-2 pb-3">
           {navigation.map((item) => (
             <DisclosureButton

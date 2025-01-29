@@ -124,8 +124,18 @@ const Menu = () => {
                       <h3 className="menu-price">{menu.price/1000}rb</h3>
                     </div>
                     <p className="menu-desc">{menu.desc}</p>
-                    <div className="mt-4 w-full flex justify-center">
-                      <input className="block w-16 text-center rounded-md bg-white px-3 py-1.5 text-gray-900 outline-1 -outline-offset-1 outline-black-400 border-2 border-neutral-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black-600 sm:text-sm/6" type="number" min={0} max={100} step={1} name="qty[]" value={order[menu.id] || 0} onChange={(e)=>addToCart(e,menu.id)} />
+                    <div className="mt-4 flex justify-center items-center">
+                      <button
+                        onClick={() => addToCart({ target: { value: Math.max((order[menu.id] || 0) - 1, 0) } }, menu.id)}
+                        className="px-3 py-1.5 bg-gray-200 font-semibold text-gray-700 rounded-md hover:bg-gray-300"
+                      >-</button>
+                      <input className="block w-16 text-center appearance-none rounded-md bg-white px-3 py-1.5 text-gray-900 outline-1 -outline-offset-1 outline-black-400 border-2 border-neutral-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black-600 sm:text-sm/6 [&::-webkit-outer-spin-button]:appearance-none 
+                        [&::-webkit-inner-spin-button]:appearance-none 
+                        [-moz-appearance:textfield]" type="number" min={0} max={100} step={1} name="qty[]" value={order[menu.id] || 0} onChange={(e)=>addToCart(e,menu.id)} />
+                      <button
+                        onClick={() => addToCart({ target: { value: Math.min((order[menu.id] || 0) + 1, 100) } }, menu.id)}
+                        className="px-3 py-1.5 bg-gray-200 font-semibold text-gray-700 rounded-md hover:bg-gray-300"
+                      >+</button>
                     </div>
                   </div>
                 </div>
