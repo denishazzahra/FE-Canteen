@@ -142,11 +142,6 @@ div.menu{
     margin:10px;
     padding:10px;
 }
-.menu div h1{
-    margin-left:15px;
-    font-size: 28px;
-    font-weight: 700;
-}
 .menu .menu-grid{
     display: grid;
     grid-template-columns:33.3% 33.3% 33.3%;
@@ -185,7 +180,6 @@ div.menu{
     color:#555555;
 }
 .menu-price{
-    margin-top:5px;
     color:#427A5B;
     font-weight:500;
     bottom:0%;
