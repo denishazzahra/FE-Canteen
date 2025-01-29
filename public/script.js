@@ -1,4 +1,4 @@
-let x = window.matchMedia("(max-width: 768px)")
+let x = window.matchMedia("(max-width: 600px)")
 
 function responsiveness(){
     let navbar = document.getElementById("navbar");

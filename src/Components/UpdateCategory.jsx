@@ -120,7 +120,7 @@ const UpdateCategory = () => {
           onClose={() => setMessage("")}
         />
       )}
-      <div className="m-6">
+      <div className="mt-24 ml-6 mr-6 mb-6">
         <CategoryLayout
           handleInputCategory={handleInputCategory} 
           handleSubmitCategory={handleSubmitCategory}

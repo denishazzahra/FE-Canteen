@@ -7,7 +7,7 @@ const Navbar = ({navigation,logout}) => {
   }
   return(
     <Disclosure as="nav" className="bg-black">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div className="sticky top-0 z-50 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 bg-black">
         <div className="relative flex h-16 items-center justify-between">
           <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
             {/* Mobile menu button*/}

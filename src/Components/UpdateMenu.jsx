@@ -142,13 +142,14 @@ const UpdateMenu = () => {
           onClose={() => setMessage("")}
         />
       )}
-      <div className="m-6">
+      <div className="mt-24 ml-6 mr-6 mb-6">
         <MenuLayout
           categoryList={categoryList}
           handleInputMenu={handleInputMenu}
           handleInputFile={handleInputFile}
           handleSubmitMenu={handleSubmitMenu}
           fileName={fileName}
+          setFileName={setFileName}
           loading={loading}
           menu={menu}
         />

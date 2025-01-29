@@ -115,6 +115,7 @@ const MenuPreview = () => {
           onClose={() => setMessage("")}
         />
       )}
+      <br/><br/><br/>
       <div className="menu">
         {menu.map((category)=>(
           <div key={category.id}>

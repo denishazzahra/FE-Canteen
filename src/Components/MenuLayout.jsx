@@ -1,7 +1,7 @@
 import { PhotoIcon } from '@heroicons/react/24/solid'
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
 
-const MenuLayout = ({categoryList, handleInputMenu, handleInputFile, handleSubmitMenu, fileName, loading, menu={}}) => {
+const MenuLayout = ({categoryList, handleInputMenu, handleInputFile, handleSubmitMenu, fileName, setFileName, loading, menu={}}) => {
   return(
     <form onSubmit={handleSubmitMenu}>
       <div className="space-y-12">
@@ -81,7 +81,7 @@ const MenuLayout = ({categoryList, handleInputMenu, handleInputFile, handleSubmi
                     <select
                       id="categoryId"
                       name="categoryId"
-                      defaultValue={menu.categoryId}
+                      defaultValue={menu.categoryId || 0}
                       onChange={handleInputMenu}
                       autoComplete="category-name"
                       className="col-start-1 row-start-1 block w-full rounded-md appearance-none bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-black-400 border-2 border-neutral-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black-600 sm:text-sm/6"
@@ -124,7 +124,8 @@ const MenuLayout = ({categoryList, handleInputMenu, handleInputFile, handleSubmi
               </div>
               <div className="mt-6 flex items-center justify-end gap-x-6">
                 <button
-                  type="button"
+                  type="reset"
+                  onClick={()=>setFileName("")}
                   className="text-sm/6 font-semibold text-gray-900"
                 >
                   Batal

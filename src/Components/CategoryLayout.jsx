@@ -37,7 +37,7 @@ const CategoryLayout = ({handleInputCategory, handleSubmitCategory, loading, cat
               </div>
               <div className="mt-6 flex items-center justify-end gap-x-6">
                 <button
-                  type="button"
+                  type="reset"
                   className="text-sm/6 font-semibold text-gray-900"
                 >
                   Batal
