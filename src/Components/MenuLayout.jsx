@@ -1,7 +1,37 @@
 import { PhotoIcon } from '@heroicons/react/24/solid'
 import { ChevronDownIcon } from '@heroicons/react/16/solid'
+import { useState } from "react"
 
 const MenuLayout = ({categoryList, handleInputMenu, handleInputFile, handleSubmitMenu, fileName, setFileName, loading, menu={}}) => {
+  const [dragActive, setDragActive] = useState(false);
+  
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setFileName(file.name);
+      handleInputFile(file); 
+    }
+  };
+
+  const handleDragOver = (event) => {
+    event.preventDefault();
+    setDragActive(true);
+  };
+
+  const handleDragLeave = () => {
+    setDragActive(false);
+  };
+
+  const handleDrop = (event) => {
+    event.preventDefault();
+    setDragActive(false);
+    
+    const file = event.dataTransfer.files[0];
+    if (file) {
+      setFileName(file.name);
+      handleInputFile(file); // Pass the actual file
+    }
+  };
   return(
     <form onSubmit={handleSubmitMenu}>
       <div className="space-y-12">
@@ -81,7 +111,7 @@ const MenuLayout = ({categoryList, handleInputMenu, handleInputFile, handleSubmi
                     <select
                       id="categoryId"
                       name="categoryId"
-                      defaultValue={menu.categoryId || 0}
+                      value={menu.categoryId || 0}
                       onChange={handleInputMenu}
                       autoComplete="category-name"
                       className="col-start-1 row-start-1 block w-full rounded-md appearance-none bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-black-400 border-2 border-neutral-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black-600 sm:text-sm/6"
@@ -103,7 +133,14 @@ const MenuLayout = ({categoryList, handleInputMenu, handleInputFile, handleSubmi
                   <label htmlFor="cover-photo" className="block text-sm/6 font-medium text-gray-900">
                     Foto (opsional)
                   </label>
-                  <div className="mt-2 flex justify-center rounded-lg border-2 border-dashed border-gray-900/25 px-6 py-10">
+                  <div 
+                    className={`mt-2 flex justify-center rounded-lg border-2 border-dashed px-6 py-10 ${
+                      dragActive ? "border-gray-900 bg-gray-100" : "border-gray-900/25"
+                    }`}
+                    onDragOver={handleDragOver}
+                    onDragLeave={handleDragLeave}
+                    onDrop={handleDrop}
+                  >
                     <div className="text-center">
                       <PhotoIcon aria-hidden="true" className="mx-auto size-12 text-gray-300" />
                       <div className="mt-4 flex justify-center text-sm/6 text-gray-600">
@@ -112,7 +149,7 @@ const MenuLayout = ({categoryList, handleInputMenu, handleInputFile, handleSubmi
                           className="relative cursor-pointer rounded-md bg-white font-semibold text-black focus-within:ring-2 focus-within:ring-neutral-800 focus-within:ring-offset-2 focus-within:outline-hidden hover:text-neutral-800"
                         >
                           <span>Unggah </span>
-                          <input id="pic" name="pic" onChange={handleInputFile} type="file" className="sr-only" />
+                          <input id="pic" name="pic" onChange={handleFileChange} type="file" className="sr-only" />
                         </label>
                         <p className="pl-1">atau <i>drag and drop</i> foto</p>
                       </div>

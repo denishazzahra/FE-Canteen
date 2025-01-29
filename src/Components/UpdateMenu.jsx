@@ -50,10 +50,10 @@ const UpdateMenu = () => {
     setMenu({...menu, [event.target.name]:event.target.value})
   }
 
-  const handleInputFile = (event) => {
-    setMenu({...menu, [event.target.name]:event.target.files[0]})
-    if(event.target.files[0]?.name){
-      setFileName(event.target.files[0].name)
+  const handleInputFile = (file) => {
+    setMenu({...menu, ['pic']:file})
+    if(file.name){
+      setFileName(file.name)
     }
   }
 

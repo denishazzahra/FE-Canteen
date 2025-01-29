@@ -77,7 +77,7 @@ const Menu = () => {
   return(
     <>
       {open && <Cart onClose={()=>setOpen(false)} cartList={cartList()} total={formattedTotal()}/>}
-      {total!=0 && !open && <div className="fixed bottom-0 z-50 left-1/2 transform -translate-x-1/2 w-full p-4">
+      {total!==0 && !open && <div className="fixed bottom-0 z-50 left-1/2 transform -translate-x-1/2 w-full p-4">
         <div className="bg-black text-white font-semibold py-4 px-4 rounded-lg shadow-lg">
           <div className="flex justify-between items-center">
             <h5 className="text-md font-semibold">Total: </h5>
