@@ -4,7 +4,7 @@ import Navbar from "./Navbar"
 import Cookies from "js-cookie"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom";
-import { getAllCategory, getSpecificCategory, updateCategory, validateToken } from "../API/API"
+import { getSpecificCategory, updateCategory, validateToken } from "../API/API"
 
 const UpdateCategory = () => {
   const {id} = useParams()
@@ -45,9 +45,9 @@ const UpdateCategory = () => {
       const response = await getSpecificCategory(id)
       setCategory(response.data.category)
     }catch(e){
-      if(e.response.status === 403){
+      if(e.response?.status === 403){
         logout('?message=forbidden')
-      }else if(e.response.status === 404){
+      }else if(e.response?.status === 404){
         navigate('/admin/category?message=category_not_found')
       }else{
         setMessage("Terjadi kesalahan.")
@@ -76,9 +76,9 @@ const UpdateCategory = () => {
       retrieveCategory()
     }catch(e){
       setClasses("flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50")
-      if(e.response.status === 403){
+      if(e.response?.status === 403){
         logout('?message=forbidden')
-      }else if(e.response.status === 404){
+      }else if(e.response?.status === 404){
         setMessage("Kategori tidak ditemukan!")
       }else{
         setMessage("Terjadi kesalahan.")

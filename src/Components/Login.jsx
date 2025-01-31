@@ -25,7 +25,7 @@ const LoginComponent = () => {
       Cookies.set('token',response.data.token)
       navigate('/admin/home?message=login_success')
     }catch(e){
-      if(e.response.status === 400){
+      if(e.response?.status === 400){
         setErrorMessage("Username/email atau kata sandi salah!")
       }else{
         setErrorMessage("Terjadi kesalahan.")

@@ -92,9 +92,9 @@ const AdminPageComponent = () => {
       retrieveCategory()
     }catch(e){
       setClasses("flex items-center p-4 mb-4 text-sm text-red-800 border border-red-300 rounded-lg bg-red-50")
-      if(e.response.status === 403){
+      if(e.response?.status === 403){
         setMessage("Anda tidak memiliki akses!")
-      }else if(e.response.status === 409){
+      }else if(e.response?.status === 409){
         setMessage("Kategori sudah ada!")
       }else{
         setMessage("Terjadi kesalahan.")
