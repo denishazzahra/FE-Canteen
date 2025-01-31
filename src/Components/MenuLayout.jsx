@@ -111,7 +111,8 @@ const MenuLayout = ({categoryList, handleInputMenu, handleInputFile, handleSubmi
                     <select
                       id="categoryId"
                       name="categoryId"
-                      value={menu.categoryId || 0}
+                      defaultValue={0}
+                      value={menu.categoryId}
                       onChange={handleInputMenu}
                       autoComplete="category-name"
                       className="col-start-1 row-start-1 block w-full rounded-md appearance-none bg-white px-3 py-1.5 text-base text-gray-900 outline-1 -outline-offset-1 outline-black-400 border-2 border-neutral-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-black-600 sm:text-sm/6"
